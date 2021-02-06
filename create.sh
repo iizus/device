@@ -22,7 +22,11 @@ vboxmanage modifyvm $DOCKER_MACHINE_ENV_NAME --vram 128
 vboxmanage modifyvm $DOCKER_MACHINE_ENV_NAME --accelerate3d on
 
 vboxmanage modifyvm $DOCKER_MACHINE_ENV_NAME --usb on
-vboxmanage modifyvm $DOCKER_MACHINE_ENV_NAME --usbxhci on
+vboxmanage modifyvm $DOCKER_MACHINE_ENV_NAME --usbehci on
 
 
-# docker-machine start $DOCKER_MACHINE_ENV_NAME
+docker-machine start $DOCKER_MACHINE_ENV_NAME
+
+
+vboxmanage list webcams
+vboxmanage controlvm $DOCKER_MACHINE_ENV_NAME webcam attach .1
